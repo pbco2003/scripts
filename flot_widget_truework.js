@@ -26,7 +26,7 @@ import 'flot/src/plugins/jquery.flot.stack';
 import 'flot.curvedlines/curvedLines';
 
 /* eslint-disable angular/angularelement */
-export default class TbFlot {
+export default class TbFlotTw {
     constructor(ctx, chartType) {
 
         this.ctx = ctx;
@@ -476,7 +476,7 @@ export default class TbFlot {
         this.options.yaxes = angular.copy(this.yaxes);
         if (this.chartType === 'line' || this.chartType === 'bar' || this.chartType === 'state') {
             if (this.chartType === 'bar') {
-                this.options.series.bars.barWidth = this.subscription.timeWindow.interval * 0.6;
+                this.options.series.bars.barWidth = this.subscription.timeWindow.interval;
             }
             this.options.xaxis.min = this.subscription.timeWindow.minTime;
             this.options.xaxis.max = this.subscription.timeWindow.maxTime;
@@ -594,7 +594,7 @@ export default class TbFlot {
                     this.options.xaxis.min = this.subscription.timeWindow.minTime;
                     this.options.xaxis.max = this.subscription.timeWindow.maxTime;
                     if (this.chartType === 'bar') {
-                        this.options.series.bars.barWidth = this.subscription.timeWindow.interval * 0.6;
+                        this.options.series.bars.barWidth = this.subscription.timeWindow.interval;
                     }
 
                     if (axisVisibilityChanged) {
@@ -603,7 +603,7 @@ export default class TbFlot {
                         this.ctx.plot.getOptions().xaxes[0].min = this.subscription.timeWindow.minTime;
                         this.ctx.plot.getOptions().xaxes[0].max = this.subscription.timeWindow.maxTime;
                         if (this.chartType === 'bar') {
-                            this.ctx.plot.getOptions().series.bars.barWidth = this.subscription.timeWindow.interval * 0.6;
+                            this.ctx.plot.getOptions().series.bars.barWidth = this.subscription.timeWindow.interval;
                         }
                         this.updateData();
                     }
